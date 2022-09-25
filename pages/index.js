@@ -2,6 +2,7 @@ import { Flex, Text, Button, Box, TabList, Tab, Tabs, TabPanels, TabPanel } from
 import Head from "next/head"
 import { useMoralis } from "react-moralis"
 import Header from "../components/Header"
+import Profile from "../components/Profile"
 
 export default function Home() {
     const { isAuthenticated, authenticate, user, logout, isLoggingOut } = useMoralis()
@@ -55,7 +56,9 @@ export default function Home() {
                             <Tab fontWeight="bold">Send ETH</Tab>
                         </TabList>
                         <TabPanels>
-                            <TabPanel>Profile</TabPanel>
+                            <TabPanel>
+                                <Profile user={user} />
+                            </TabPanel>
                             <TabPanel>Balance</TabPanel>
                             <TabPanel>Transactions</TabPanel>
                             <TabPanel>NFTs</TabPanel>
